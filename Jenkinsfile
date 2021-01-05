@@ -1,23 +1,28 @@
 pipeline {
     agent any
-    stages {
-        stage('set variables') {
-            steps {
-            // Jenkins pipeline name = BASIC_PIPELINE
+    parameters {
+        // Jenkins pipeline name = BASIC_PIPELINE
             //This is a declaritive version of the jenkinsfile using pipeline, agent, stages, stage, steps
             //  
  
             // Jenkins credential ID and CES Personal Access token to be used for mainframe access
-            def Credentials_value  = "CWCC_TSO_LOGIN"           // jenkins token for HUK0320 tso user used to
-                                                                    // connect to the HCI
-            def Connection_value    = "CWCC_HCI"                 // Jenkins login credential token - obtained from the 
-                                                                    // Compuware Common Configurations Connection Id
-                                                                    // for the HCI/LPAR definition being used 
+            string (defaultValue: "CWCC_TSO_LOGIN",
+                 description: 'jenkins token for HUK0320 tso',
+                 name: 'Credentials_value'                              //  user used to connect to the HCI
 
-            def MF_Source          = 'HUK0320.DEMO.COB.SRC3'     //PDS containing just ALJOCOB source
-            }
-        }
+            string (defaultValue: "CWCC_HCI",
+                 description: 'Jenkins login credential token',
+                 name: 'Connection_value'                               //  user used to connect to the HCI                                              
+                                                                        // Jenkins login credential token - obtained from the 
+                                                                        // Compuware Common Configurations Connection Id
+                                                                        // for the HCI/LPAR definition being used 
 
+            string (defaultValue: "HUK0320.DEMO.COB.SRC3",
+                 description: 'PDS containing just ALJOCOB source',
+                 name: 'MF_Source'                                      //  user used to connect to the HCI
+    }
+
+    stages {
         stage('Get source code for automated analysis from PDS') {
             steps {
             // this is the modified version of the SCM plugin code created by the syntax generator 
