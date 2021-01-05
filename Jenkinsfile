@@ -8,13 +8,13 @@ pipeline {
             //  
  
             // Jenkins credential ID and CES Personal Access token to be used for mainframe access
-            String Credentials_value  = "CWCC_TSO_LOGIN"           // jenkins token for HUK0320 tso user used to
+            def Credentials_value  = "CWCC_TSO_LOGIN"           // jenkins token for HUK0320 tso user used to
                                                                     // connect to the HCI
-            String Connection_value    = "CWCC_HCI"                 // Jenkins login credential token - obtained from the 
+            def Connection_value    = "CWCC_HCI"                 // Jenkins login credential token - obtained from the 
                                                                     // Compuware Common Configurations Connection Id
                                                                     // for the HCI/LPAR definition being used 
 
-            String MF_Source          = 'HUK0320.DEMO.COB.SRC3'     //PDS containing just ALJOCOB source
+            def MF_Source          = 'HUK0320.DEMO.COB.SRC3'     //PDS containing just ALJOCOB source
             }
         }
 
