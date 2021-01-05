@@ -8,18 +8,18 @@ pipeline {
             // Jenkins credential ID and CES Personal Access token to be used for mainframe access
             string (defaultValue: "CWCC_TSO_LOGIN",
                  description: 'jenkins token for HUK0320 tso',
-                 name: 'Credentials_value'                              //  user used to connect to the HCI
+                 name: 'Credentials_value')                              //  user used to connect to the HCI
 
             string (defaultValue: "CWCC_HCI",
                  description: 'Jenkins login credential token',
-                 name: 'Connection_value'                               //  user used to connect to the HCI                                              
+                 name: 'Connection_value')                               //  user used to connect to the HCI                                              
                                                                         // Jenkins login credential token - obtained from the 
                                                                         // Compuware Common Configurations Connection Id
                                                                         // for the HCI/LPAR definition being used 
 
             string (defaultValue: "HUK0320.DEMO.COB.SRC3",
                  description: 'PDS containing just ALJOCOB source',
-                 name: 'MF_Source'                                      //  user used to connect to the HCI
+                 name: 'MF_Source')                                     //  user used to connect to the HCI
     }
 
     stages {
